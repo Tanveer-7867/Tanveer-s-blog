@@ -1,0 +1,23 @@
+JavaScript (Interactivity) Explanation
+This is a small script that makes the navigation links smoothly scroll to the corresponding sections of the page when clicked.
+
+javascript
+Copy
+Edit
+document.querySelectorAll('nav a').forEach(link => {
+  link.addEventListener('click', e => {
+    e.preventDefault();  // Prevents the default anchor behavior (jumping to the section).
+    document.querySelector(link.getAttribute('href'))  // Selects the target section.
+      .scrollIntoView({ behavior: 'smooth' });  // Smooth scroll to the target section.
+  });
+});
+document.querySelectorAll('nav a'): This selects all <a> tags inside the <nav> element.
+
+.forEach(link => { ... }): Loops through each link and attaches an event listener to it.
+
+e.preventDefault(): Prevents the default behavior of the anchor tag (which would cause an instant jump to the section).
+
+document.querySelector(link.getAttribute('href')): This gets the section that corresponds to the href attribute of the clicked link (like #about, #places).
+
+.scrollIntoView({ behavior: 'smooth' }): This makes the page scroll smoothly to the target section instead of jumping instantly.
+
